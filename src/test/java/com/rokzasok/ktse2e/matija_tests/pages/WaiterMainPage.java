@@ -17,7 +17,7 @@ public class WaiterMainPage {
     @FindBy(xpath = "((//div[contains(@class, 'sitting-table')])[last()])/p")
     private WebElement lastTableLink;
 
-    @FindBy(xpath = "//a[text()='My Orders']")
+    @FindBy(id = "waiters-orders-link")
     private WebElement ordersLink;
 
     @FindBy(xpath = "a[contains(text(), 'Logout')]")

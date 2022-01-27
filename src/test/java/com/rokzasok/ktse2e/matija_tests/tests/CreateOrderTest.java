@@ -1,11 +1,10 @@
 package com.rokzasok.ktse2e.matija_tests.tests;
 
-import com.rokzasok.ktse2e.matija_tests.Utils;
+import com.rokzasok.ktse2e.matija_tests.pages.CreateOrderPage;
 import com.rokzasok.ktse2e.matija_tests.pages.LoginPage;
 import com.rokzasok.ktse2e.matija_tests.pages.WaiterMainPage;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -17,6 +16,7 @@ public class CreateOrderTest {
 
     private LoginPage loginPage;
     private WaiterMainPage waiterMainPage;
+    private CreateOrderPage createOrderPage;
 
     @Before
     public void setup() {
@@ -25,6 +25,7 @@ public class CreateOrderTest {
         driver = new FirefoxDriver();
         loginPage = new LoginPage(driver);
         waiterMainPage = new WaiterMainPage(driver);
+        createOrderPage = new CreateOrderPage(driver);
 
         this.driver.navigate().to(BASE_URL);
     }
@@ -44,7 +45,24 @@ public class CreateOrderTest {
 
         assertEquals(this.driver.getCurrentUrl(), BASE_URL + "/orders/create/at/" + tableId);
 
+        createOrderPage.expandAllCategories();
 
+        int totalItems = createOrderPage.numberOfTotalItems();
+
+        createOrderPage.addAllItems();
+
+        int addedItems = createOrderPage.numberOfAddedItems();
+        int sumOfPrices = createOrderPage.getSumOfItemPrices();
+        int totalPrice = createOrderPage.getTotalPrice();
+
+        assertEquals(totalItems, addedItems);
+        assertEquals(totalPrice, sumOfPrices);
+
+        createOrderPage.confirmOrder("Neki message");
+
+        String successMessage = createOrderPage.waitForOrderConfirmation();
+
+        assertEquals("Order successfully saved", successMessage);
     }
 
 }
