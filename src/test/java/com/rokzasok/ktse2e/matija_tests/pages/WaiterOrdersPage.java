@@ -60,6 +60,7 @@ public class WaiterOrdersPage {
 
         deleteLatestOrderButton.click();
 
+        Utils.waitForAlert(driver, 5);
         Alert confirm = driver.switchTo().alert();
         confirm.accept();
 

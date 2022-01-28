@@ -98,6 +98,7 @@ public class CreateOrderPage {
                 .until(ExpectedConditions.elementToBeClickable(confirmOrderButton));
 
         confirmOrderButton.click();
+        Utils.waitForAlert(driver, 5);
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(orderNote);
         alert.accept();
