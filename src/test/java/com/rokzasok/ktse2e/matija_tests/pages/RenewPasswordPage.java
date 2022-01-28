@@ -16,7 +16,7 @@ public class RenewPasswordPage {
     @FindBy(name = "password")
     private WebElement passwordField;
 
-    @FindBy(id = "submit-renewal")
+    @FindBy(xpath = "//input[@type='submit']")
     private WebElement submitButton;
 
     public RenewPasswordPage(WebDriver driver) {
