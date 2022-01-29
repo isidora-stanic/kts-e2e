@@ -11,7 +11,6 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.LocalDate;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -42,25 +41,6 @@ public class AddToMenuTest {
         driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
     }
 
-
-    public void addAllDrinks() {
-        int size = drinkMenuPage.getNumOfDrinkSuggestions();
-        for (int i = 0; i < size; i++){
-            /* TODO add first drink */
-            drinkMenuPage.addFirstDrink();
-
-            /* TODO ADD DRINK PAGE */
-
-            assertTrue(this.driver.getCurrentUrl().contains("/add/drink/"));
-
-            int price = 150;
-            addToMenuPage.setPriceIN(String.valueOf(price));
-            addToMenuPage.clickAdd();
-
-            assertEquals(size - i - 1, drinkMenuPage.getNumOfDrinkSuggestions());
-        }
-    }
-
     public void removeOne() {
         /* TODO remove first in menu */
         drinkMenuPage.removeFirst();
@@ -68,7 +48,7 @@ public class AddToMenuTest {
         assertTrue(drinkMenuPage.noCategories());
     }
 
-    public void addOneDrink() {
+    public void addOneDrinkAllCases() {
         /* TODO add first drink */
 
         String drinkToAddName = drinkMenuPage.getFirstDrinkName();
@@ -112,17 +92,6 @@ public class AddToMenuTest {
 
     }
 
-    public void removeAll() {
-        while (true) {
-            drinkMenuPage.removeAllFirsts();
-            if (drinkMenuPage.noCategories()) {
-                break;
-            }
-        }
-
-        assertTrue(drinkMenuPage.noCategories());
-    }
-
     public void deleteMenu() {
         drinkMenuPage.deleteClick();
     }
@@ -163,7 +132,7 @@ public class AddToMenuTest {
 
         drinkMenuPage.createNewClick();
 
-        addOneDrink();
+        addOneDrinkAllCases();
 
         removeOne();
 
