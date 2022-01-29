@@ -98,18 +98,22 @@ public class CreateOrderPage {
                 .until(ExpectedConditions.elementToBeClickable(confirmOrderButton));
 
         confirmOrderButton.click();
-        Utils.waitForAlert(driver, 5);
+
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(orderNote);
         alert.accept();
 
-        Utils.waitForAlert(driver, 5);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
         Alert confirm = driver.switchTo().alert();
         confirm.accept();
     }
 
     public String waitForOrderConfirmation() throws InterruptedException {
-        Utils.waitForAlert(driver, 5);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
 
         Alert alert = driver.switchTo().alert();
         String message =  alert.getText();

@@ -65,11 +65,13 @@ public class WaiterOrdersPage {
 
         deleteLatestOrderButton.click();
 
-        Utils.waitForAlert(driver, 5);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
         Alert confirm = driver.switchTo().alert();
         confirm.accept();
 
-        Utils.waitForAlert(driver, 5);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
         Alert complete = driver.switchTo().alert();
         complete.dismiss();
     }
@@ -80,7 +82,8 @@ public class WaiterOrdersPage {
 
         finishLatestOrderButton.click();
 
-        Utils.waitForAlert(driver, 5);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
     }
