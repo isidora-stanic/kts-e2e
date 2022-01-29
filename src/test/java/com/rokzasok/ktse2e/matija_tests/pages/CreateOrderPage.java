@@ -103,8 +103,9 @@ public class CreateOrderPage {
         alert.sendKeys(orderNote);
         alert.accept();
 
-        alert = driver.switchTo().alert();
-        alert.accept();
+        Utils.waitForAlert(driver, 5);
+        Alert confirm = driver.switchTo().alert();
+        confirm.accept();
     }
 
     public String waitForOrderConfirmation() throws InterruptedException {

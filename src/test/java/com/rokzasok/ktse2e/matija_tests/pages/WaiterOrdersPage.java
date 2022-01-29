@@ -20,25 +20,30 @@ public class WaiterOrdersPage {
     @FindBy(xpath = "//tr[contains(@class, 'example-element-row')]")
     private List<WebElement> orderRows;
 
-    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]")
+//    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]")
+    @FindBy(xpath = "(//td[text()=' 1 '])/..")
     private WebElement latestOrderRow;
 
-    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[3]")
+//    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[3]")
+    @FindBy(xpath = "(//td[text()=' 1 '])/../td[4]")
     private WebElement latestOrderStatusField;
 
-    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[4]/button[1]")
+//    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[4]/button[1]")
+    @FindBy(xpath = "(//td[text()=' 1 '])/../td[5]/button[1]")
     private WebElement editLatestOrderButton;
 
-    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[4]/button[2]")
+//    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[4]/button[2]")
+    @FindBy(xpath = "(//td[text()=' 1 '])/../td[5]/button[2]")
     private WebElement finishLatestOrderButton;
 
-    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[4]/button[3]")
+//    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[1]/td[4]/button[3]")
+    @FindBy(xpath = "(//td[text()=' 1 '])/../td[5]/button[3]")
     private WebElement deleteLatestOrderButton;
 
-    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[2]/td/div/div/table[1]/tr")
+    @FindBy(xpath = "//tr[contains(@class, 'example-element-row')]/td[text()=' 1 ']/../following-sibling::tr[1]//table[1]/tr")
     private List<WebElement> latestOrderDishes;
 
-    @FindBy(xpath = "/html/body/app-root/div/div/div/app-waiter-orders/table/tbody/tr[2]/td/div/div/table[2]/tr")
+    @FindBy(xpath = "//tr[contains(@class, 'example-element-row')]/td[text()=' 1 ']/../following-sibling::tr[1]//table[2]/tr")
     private List<WebElement> latestOrderDrinks;
 
     public WaiterOrdersPage(WebDriver driver) {
