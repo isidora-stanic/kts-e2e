@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.Assert.assertEquals;
 
 public class CreateOrderTest {
@@ -27,6 +29,7 @@ public class CreateOrderTest {
         waiterMainPage = new WaiterMainPage(driver);
         createOrderPage = new CreateOrderPage(driver);
 
+        this.driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         this.driver.navigate().to(BASE_URL);
     }
 

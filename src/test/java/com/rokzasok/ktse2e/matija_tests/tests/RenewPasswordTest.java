@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
@@ -76,7 +78,8 @@ public class RenewPasswordTest {
         renewPasswordPage.setPassword(NEW_USER_PASSWORD);
         renewPasswordPage.submitPasswordChange();
 
-        Utils.waitForAlert(driver, 5);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
         Alert success = driver.switchTo().alert();
         success.dismiss();
 

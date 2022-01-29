@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -32,6 +34,7 @@ public class EditOrderTest {
         waiterOrdersPage = new WaiterOrdersPage(driver);
         editOrderPage = new EditOrderPage(driver);
 
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         driver.navigate().to(BASE_URL);
     }
 

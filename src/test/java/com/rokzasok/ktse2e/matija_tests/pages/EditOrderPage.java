@@ -58,7 +58,8 @@ public class EditOrderPage {
 
         confirmButton.click();
 
-        Utils.waitForAlert(driver, 5);
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.alertIsPresent());
         Alert success = driver.switchTo().alert();
         success.dismiss();
     }
