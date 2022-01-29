@@ -133,7 +133,7 @@ public class FoodMenuTest {
         reportsPage.goToFoodMenu();
 
         /* TODO FOOD MENU PAGE */
-        deleteAllMenus();
+        //deleteAllMenus();
 
         assertEquals(this.driver.getCurrentUrl(), BASE_URL + "/manager-menus/food-menu");
 
@@ -172,7 +172,7 @@ public class FoodMenuTest {
         reportsPage.goToFoodMenu();
 
         /* TODO FOOD MENU PAGE */
-        deleteAllMenus();
+        //deleteAllMenus();
 
         assertEquals(this.driver.getCurrentUrl(), BASE_URL + "/manager-menus/food-menu");
 
