@@ -19,6 +19,9 @@ public class RenewPasswordPage {
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement submitButton;
 
+    @FindBy(css = ".alert.alert-danger")
+    private WebElement errorResponse;
+
     public RenewPasswordPage(WebDriver driver) {
         super();
         this.driver = driver;
@@ -48,5 +51,10 @@ public class RenewPasswordPage {
         submitButton.click();
     }
 
+    public String getErrorMessage() {
+        new WebDriverWait(driver, 5)
+                .until(ExpectedConditions.visibilityOf(errorResponse));
 
+        return errorResponse.getText();
+    }
 }
