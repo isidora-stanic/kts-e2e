@@ -44,7 +44,7 @@ public class CookOrdersTest {
 
 
     @Test
-    public void loginTest_OK() throws InterruptedException {
+    public void accept_complete_order_test(){
         newCookOrders.newCookOrders();
         newCookOrders.acceptFirstOrder(2);
         assertTrue(newCookOrders.checkNumberOfElements(2));

@@ -42,7 +42,7 @@ public class BartenderOrdersTest {
 
 
     @Test
-    public void loginTest_OK() throws InterruptedException {
+    public void accept_complete_order_test(){
         newBartenderOrdersPage.newCookOrders();
         newBartenderOrdersPage.acceptFirstOrder(0);
         assertTrue(newBartenderOrdersPage.checkNumberOfElements(0));
