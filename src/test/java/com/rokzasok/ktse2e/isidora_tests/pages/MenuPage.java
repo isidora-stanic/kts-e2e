@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MenuPage {
 
-    private WebDriver driver;
+    protected WebDriver driver;
 
     @FindBy(id = "breakfast")
     private WebElement breakfastCat;
@@ -55,16 +55,16 @@ public class MenuPage {
     // todo all
 
     @FindBy(className = "dish-card")
-    private List<WebElement> dishCards;
+    protected List<WebElement> dishCards;
 
     @FindBy(className = "drink-card")
-    private List<WebElement> drinkCards;
+    protected List<WebElement> drinkCards;
 
     @FindBy(className = "dish-name")
-    private List<WebElement> dishNames;
+    protected List<WebElement> dishNames;
 
     @FindBy(className = "dish-category")
-    private List<WebElement> dishCat;
+    protected List<WebElement> dishCat;
 
     @FindBy(className = "dish-add-btn")
     private List<WebElement> dishAddBTNs;
@@ -72,28 +72,28 @@ public class MenuPage {
     // todo first
 
     @FindBy(className = "dish-card")
-    private WebElement firstDishCard;
+    protected WebElement firstDishCard;
 
     @FindBy(className = "dish-name")
-    private WebElement firstDishName;
+    protected WebElement firstDishName;
 
     @FindBy(className = "dish-category")
-    private WebElement firstDishCat;
+    protected WebElement firstDishCat;
 
     @FindBy(className = "dish-add-btn")
-    private WebElement firstDishAddBTN;
+    protected WebElement firstDishAddBTN;
 
     @FindBy(className = "drink-card")
-    private WebElement firstDrinkCard;
+    protected WebElement firstDrinkCard;
 
     @FindBy(className = "drink-name")
-    private WebElement firstDrinkName;
+    protected WebElement firstDrinkName;
 
     @FindBy(className = "drink-category")
-    private WebElement firstDrinkCat;
+    protected WebElement firstDrinkCat;
 
     @FindBy(className = "drink-add-btn")
-    private WebElement firstDrinkAddBTN;
+    protected WebElement firstDrinkAddBTN;
 
     // todo in menu
 
