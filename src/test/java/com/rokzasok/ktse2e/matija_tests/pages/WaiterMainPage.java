@@ -17,11 +17,14 @@ public class WaiterMainPage {
     @FindBy(xpath = "((//div[contains(@class, 'sitting-table')])[last()])/p")
     private WebElement lastTableLink;
 
-    @FindBy(xpath = "//a[text()='My Orders']")
+    @FindBy(id = "waiters-orders-link")
     private WebElement ordersLink;
 
     @FindBy(xpath = "a[contains(text(), 'Logout')]")
     private WebElement logoutLink;
+
+    @FindBy(id = "user-name-link")
+    private WebElement usernameLink;
 
     public WaiterMainPage(WebDriver driver) {
         super();
@@ -56,5 +59,12 @@ public class WaiterMainPage {
                 .until(ExpectedConditions.visibilityOf(lastTable));
 
         return lastTable.getAttribute("id").split("-")[1];
+    }
+
+    public String getUsername() {
+        new WebDriverWait(this.driver, 5)
+                .until(ExpectedConditions.visibilityOf(usernameLink));
+
+        return usernameLink.getText();
     }
 }
